@@ -1,0 +1,118 @@
+$Azul: #0D4BE3;
+$Naranja: #EC4E20;
+
+.seccionA
+{
+    background-color: $Azul;
+}
+.seccionN
+{
+    background-color: $Naranja;
+}
+
+@mixin CrucesPequenas
+{
+    z-index: 3;
+    img{
+        width: 100%;
+    }
+}
+
+  .grid-container 
+  {
+    display: grid;
+    grid-template-columns: 0.6fr [CGI] 0.7fr 0.1fr 0.7fr 2.2fr 0.9fr 0.8fr 0.4fr;
+    grid-template-rows: 3fr 0.9fr [S1] 0.8fr 3.3fr 0.6fr [CGF] 0.4fr [S2] 0.8fr 2.9fr 1.2fr [S3] 0.5fr 3.1fr 1fr [S4] 0.8fr 2.7fr 2fr [S5] 0.7fr 1.4fr;
+    gap: 1px 1px;
+}
+
+  .cruzGigante {
+    grid-row: 1/ span CGF;
+    grid-column: CGI / span 7;
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+
+    img{
+        width: 200%;
+        margin-top: -60%;
+    }
+
+}
+
+.CrucesRojas1
+{
+    grid-row: 2 / span 4;
+    grid-column: 6 ;
+    @include CrucesPequenas;
+}
+
+.CrucesRojas2
+{
+    grid-row: 5 / span 8;
+    grid-column: 4 ;
+    @include CrucesPequenas;
+}
+
+.CrucesBlanco1
+{
+    grid-row: 9 / span 11;
+    grid-column: 6;
+    @include CrucesPequenas;
+}
+
+.CrucesBlanco2
+{
+    grid-row: 12 / span 14;
+    grid-column: 2;
+    @include CrucesPequenas;
+}
+
+.CrucesBlanco3
+{
+    grid-row: 15 / span 18;
+    grid-column: 7;
+    @include CrucesPequenas;
+}
+
+@mixin sections
+{
+    grid-column: 1 / span 8;
+    z-index: 1;
+}
+
+#RefEconomy
+{
+    grid-row: 1 / span S1;
+    @include sections;
+}
+
+#QueEs
+{
+    grid-row: S1 / span S2;
+    @include sections;
+}
+
+#Porque
+{
+    grid-row: S2 / span S3;
+    @include sections;
+}
+
+#ComoAyuda
+{
+    grid-row: S3 / span S4;
+    @include sections;
+}
+
+#ComoUsar
+{
+    grid-row: S4 / span S5;
+    @include sections;
+}
+
+#Contacto
+{
+    grid-row: S5/ span 18;
+    @include sections;
+}

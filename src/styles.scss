@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+$Azul: #0D4BE3;
+$Naranja:  #FF760A;
+$Morado: #410199;
+$AzuOscuro: #063BAF;
+$Blanco: #FFFFFF;
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    color: $Blanco;
+    font-size: 14pt;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 3em;
+}
+

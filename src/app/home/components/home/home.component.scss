@@ -1,34 +1,74 @@
-$Azul: #0D4BE3;
-$Naranja: #EC4E20;
+@import '../../../../styles.scss';
 
-.seccionA
+/*
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100% * 6;
+    }
+
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+
+
+}
+
+.page
+{
+    @include aspect-ratio(2,1);
+
+}
+
+.BackgroundSeccion
+{
+    grid-column: 1 / span 10;
+    z-index: 1;
+}
+
+#fondoHome1
 {
     background-color: $Azul;
+    grid-row: 1 / span S4;
 }
-.seccionN
+
+#fondoHome2
 {
     background-color: $Naranja;
+    grid-row: S4 / span S5;
 }
 
-@mixin CrucesPequenas
+#fondoHome3
 {
-    z-index: 3;
-    img{
-        width: 100%;
-    }
+    background-color: $Azul;
+    grid-row: S5 / span 7;
 }
 
-  .grid-container 
-  {
+.grid-container 
+{
     display: grid;
-    grid-template-columns: 0.6fr [CGI] 0.7fr 0.1fr 0.7fr 2.2fr 0.9fr 0.8fr 0.4fr;
-    grid-template-rows: 3fr 0.9fr [S1] 0.8fr 3.3fr 0.6fr [CGF] 0.4fr [S2] 0.8fr 2.9fr 1.2fr [S3] 0.5fr 3.1fr 1fr [S4] 0.8fr 2.7fr 2fr [S5] 0.7fr 1.4fr;
-    gap: 1px 1px;
+    // grid-template-columns: 0.6fr [CGI] 0.7fr 0.1fr 0.7fr 2.2fr 0.9fr 0.8fr 0.4fr;9
+   // grid-template-rows: 3fr 0.9fr [S1] 0.8fr 3.3fr 0.6fr [CGF] 0.4fr [S2] 0.8fr 2.9fr 1.2fr [S3] 0.5fr 3.1fr 1fr [S4] 0.8fr 2.7fr 2fr [S5] 0.7fr 1.4fr;
+   grid-template-columns:  0.5fr [C1] 1fr [C2] 1fr [C3] 1fr [C4] 1fr [C5] 1fr [C6] 1fr [C7] 1fr [C8] 0.5fr;
+   grid-template-rows:  1fr [S1] 1fr [S2] 1fr [S3] 1fr [S4] 1fr [S5] 1fr;
+   gap: 1px 1px;
+   height: 100%;
+   width: 100%;
 }
 
-  .cruzGigante {
-    grid-row: 1/ span CGF;
-    grid-column: CGI / span 7;
+.cruzGigante 
+{
+    grid-row: 1/ span S3;
+    grid-column: C1 / span 9;
     z-index: 2;
     position: relative;
     overflow: hidden;
@@ -40,45 +80,54 @@ $Naranja: #EC4E20;
 
 }
 
+@mixin CrucesPequenas
+{
+    z-index: 4;
+    img{
+        width: 100%;
+    }
+}
+
 .CrucesRojas1
 {
-    grid-row: 2 / span 4;
-    grid-column: 6 ;
+    grid-row: S1;
+    grid-column: C5;
     @include CrucesPequenas;
 }
 
 .CrucesRojas2
 {
-    grid-row: 5 / span 8;
-    grid-column: 4 ;
+    grid-row: S2;
+    grid-column: C2;
     @include CrucesPequenas;
 }
 
 .CrucesBlanco1
 {
-    grid-row: 9 / span 11;
-    grid-column: 6;
+    grid-row: S3;
+    grid-column: C5;
     @include CrucesPequenas;
 }
 
 .CrucesBlanco2
 {
-    grid-row: 12 / span 14;
-    grid-column: 2;
+    grid-row: S4;
+    grid-column: C1;
     @include CrucesPequenas;
 }
 
 .CrucesBlanco3
 {
-    grid-row: 15 / span 18;
-    grid-column: 7;
+    grid-row: S5;
+    grid-column: C6;
     @include CrucesPequenas;
 }
 
+///-----------Estructura secciones-------------
 @mixin sections
 {
-    grid-column: 1 / span 8;
-    z-index: 1;
+    grid-column: 1 / span 10;
+    z-index: 3;
 }
 
 #RefEconomy
@@ -113,6 +162,130 @@ $Naranja: #EC4E20;
 
 #Contacto
 {
-    grid-row: S5/ span 18;
+    grid-row: S5/ span 10;
     @include sections;
+}
+
+///----------------------Secciones----------------------
+
+.ContenidoSeccion
+{
+    padding: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.recSeccion
+{
+    width: 50%;
+    *{
+        width: 100%;
+        text-align: center;
+    }
+}*/
+
+.CruzBackground
+{
+    background-color: $Azul;  
+    display: grid;
+    grid-template-columns: 1fr [IC] 8fr;
+    grid-template-rows: 2fr [FC] 1fr;
+    z-index: 1;
+}
+
+.cruzGigante 
+{
+    grid-row: 1/ span FC;
+    grid-column: IC / span 2;
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+
+    img{
+        width: 200%;
+        margin-top: -60%;
+    }
+
+}
+
+.ContentSecciones
+{
+    grid-row: 1/ span 3;
+    grid-column: 1 / span 3;
+    z-index: 3;
+}
+
+.seccion
+{
+    height: 100vh;
+   // overflow: hidden;
+    display: grid;
+    grid-template-columns:  0.5fr [C1] 1fr [C2] 1fr [C3] 1fr [C4] 1fr [C5] 1fr [C6] 1fr [C7] 1fr [C8] 0.5fr;
+    grid-template-rows:  1fr [S1] 1fr [S2] 1fr [S3] 1fr;
+
+}
+
+.ContenidoSeccion
+{
+    grid-row: 1/ span 5;
+    grid-column: 1 / span 10;
+    padding: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.recSeccion
+{
+    width: 50%;
+    *{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@mixin CrucesPequenas
+{
+    position: relative;
+    z-index: 4;
+    img{
+        width: 100%;
+        position: absolute;
+    }
+}
+
+.CrucesRojas1
+{
+    grid-row: S3;
+    grid-column: C6;
+    @include CrucesPequenas;
+    img{
+        margin-top: 50%;
+    }
+    
+}
+
+
+.CrucesRojas2
+{
+    grid-row: S3;
+    grid-column: C2;
+    @include CrucesPequenas;
+    img{
+        margin-top: 80%;
+    }
+}
+
+.CrucesBlanco1
+{
+    grid-row: S3;
+    grid-column: C5;
+    @include CrucesPequenas;
+    img{
+        margin-top: 10%;
+    }
 }

@@ -21,7 +21,7 @@ const routes: Routes = [
       },
       {
         path: 'inside',
-        loadChildren: () => import ('./inside/inside.module').then (m => m.InsideModule)
+        loadChildren: () => import ('./inside/inside.module').then (n => n.InsideModule)
       },
       {
         path: '**',

@@ -5,7 +5,7 @@ import { InsideComponent } from './components/inside.component'
 
 const routes: Routes = [
 {
-    path: '',
+    path: 'inside',
     component: InsideComponent
 }
 ];

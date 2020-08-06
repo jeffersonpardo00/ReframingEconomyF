@@ -198,20 +198,41 @@
 
 .cruzGigante 
 {
-    grid-row: 1/ span FC;
-    grid-column: IC / span 2;
     z-index: 2;
     position: relative;
     overflow: hidden;
+    grid-row: 1/ span FC;
+    grid-column: 1 / span 2;
 
-    img{
-        width: 200%;
-        margin-top: -60%;
+    img 
+    {
+       // width: 400%;
+       // margin-left: -100%;
+       // margin-top: -130%;
+
+        @for $i from 1 through 40 {
+
+            @media screen and (min-width: 50px*$i) and (max-width: 50px*($i + 1)) {
+               
+                width: (-0.175*((50*$i)-550)) + 400%;
+                margin-left: (0.076*((50*$i)-550)) - 100%;
+                margin-top: (0.058*((50*$i)-550)) - 130%;
+            }
+
+        }
+        width: 160%;
+        margin-left: 5%;
+        margin-top: 50%;
     }
-
+/*
+    img{
+        width: 400%;
+        margin-left: -100%;
+        margin-top: -130%;
+    }*/
 }
 
-.ContentSecciones
+.ContentSeccionesCruz
 {
     grid-row: 1/ span 3;
     grid-column: 1 / span 3;
@@ -239,6 +260,16 @@
     height: 100%;
 }
 
+.BackgroundSA
+{
+    background-color: $Azul;
+}
+
+.BackgroundSN
+{
+    background-color: $Naranja;
+}
+
 .recSeccion
 {
     width: 50%;
@@ -261,7 +292,7 @@
 .CrucesRojas1
 {
     grid-row: S3;
-    grid-column: C6;
+    grid-column: C5 / span C8;
     @include CrucesPequenas;
     img{
         margin-top: 50%;
@@ -269,6 +300,87 @@
     
 }
 
+.CrucesRojas2
+{
+    grid-row: S3;
+    grid-column: C1 / span C3;
+    @include CrucesPequenas;
+    img{
+        margin-top: 80%;
+    }
+}
+
+.CrucesBlanco1
+{
+    grid-row: S3;
+    grid-column: C5 / span C8;
+    @include CrucesPequenas;
+    img{
+        margin-top: 10%;
+    }
+}
+
+.CrucesBlanco2
+{
+    grid-row: S3;
+    grid-column: 1 / span C2;
+    @include CrucesPequenas;
+    img{
+        margin-top: 40%;
+        margin-left: -40%;
+    }
+}
+
+.CrucesBlanco3
+{
+    grid-row: S3;
+    grid-column: C7 / span 10;
+    @include CrucesPequenas;
+    img{
+        margin-top: 40%;
+        margin-right: -40%;
+    }
+}
+
+/*
+.cruzGigante {
+
+    img 
+    {
+        @for $i from 1 through 20 {
+
+            @media screen and (min-width: 550px*$i) and (max-width: 50px*($i + 1)) {
+                font-size: 5%*$i;
+            }
+
+        }
+    }
+    
+}*/
+
+//-----------------------ANCHO MAYOR A 500PX-----------------------------------
+@media screen and (min-width: 550px) 
+{
+    
+.cruzGigante 
+{
+   // grid-column: IC / span 2;
+    img{
+        // margin-top: -60%;
+    }
+
+}
+
+.CrucesRojas1
+{
+    grid-row: S3;
+    grid-column: C6;
+    @include CrucesPequenas;
+    img{
+        margin-top: 50%;
+    }
+    
+}
 
 .CrucesRojas2
 {
@@ -288,4 +400,26 @@
     img{
         margin-top: 10%;
     }
+}
+
+.CrucesBlanco2
+{
+    grid-row: S3;
+    grid-column: C1;
+    @include CrucesPequenas;
+    img{
+        margin-top: 40%;
+    }
+}
+
+.CrucesBlanco3
+{
+    grid-row: S3;
+    grid-column: C6;
+    @include CrucesPequenas;
+    img{
+        margin-top: 40%;
+    }
+}
+
 }

@@ -1,10 +1,15 @@
 <p>inside works!</p>
-<!--
-<div *ngFor="let person of people">
-    {{person.id}}
-    {{person.avatar}}
-    {{person.first_name}}
-    {{person.last_name}}
-    {{person.email}}
+<div class="fondoInside">
+    <table>
+        <tbody>
+            <tr *ngFor="let person of people">
+                <td>{{person.id}}</td>
+                <td><img [src]="person.avatar"></td>
+                <td>{{person.first_name}}</td>
+                <td>{{person.last_name}}</td>
+                <td>{{person.email}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
--->
+

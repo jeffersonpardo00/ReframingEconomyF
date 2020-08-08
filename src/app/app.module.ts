@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,6 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 
 import { environment } from '../environments/environment';
-
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { environment } from '../environments/environment';
     SharedModule,
     CoreModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,19 +3,66 @@
 $Azul: #0D4BE3;
 $Naranja:  #FF760A;
 $Morado: #410199;
-$AzuOscuro: #063BAF;
+$AzulOscuro: #063BAF;
 $Blanco: #FFFFFF;
+
+@mixin font-size($sizeValue: 1) {
+    font-size: ($sizeValue * 10) + px;
+    font-size: $sizeValue + rem;
+}
+
+
+@function EcuacionRecta ($x1, $y1, $x2, $y2, $x) 
+{
+    $m: ($y2 - $y1) / ($x2 - $x1);
+    @return $m*($x - $x1) + $y1;
+}
+
+html
+{
+    font-size: 100%;
+
+    
+
+/*
+    @for $i from 0 through 11 {
+
+        @media screen and (min-width: 50px*$i) and (max-width: 50px*($i + 1)) {
+           
+            font-size: 20%*$i;
+        }
+
+    }*/
+}
+
+
 
 body{
     font-family: 'Open Sans', sans-serif;
     color: $Blanco;
-    font-size: 14pt;
+    //font-size: 14pt;
+    @include font-size(1);
     margin: 0;
     padding: 0;
+    position: relative; 
 }
 
 h1{
     font-weight: bold;
-    font-size: 3em;
+    line-height: 1em;
+    @include font-size(2);
+    @media screen and (min-width: 550px) 
+    {
+        @include font-size(3);
+    }
+
+}
+
+a,p{
+    @include font-size(0.8);
+    @media screen and (min-width: 550px) 
+    {
+        @include font-size(0.9);
+    }
 }
 

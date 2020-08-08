@@ -58,20 +58,16 @@
     height: 100vh;
    // overflow: hidden;
     display: grid;
-    grid-template-columns:  0.5fr [C1] 1fr [C2] 1fr [C3] 1fr [C4] 1fr [C5] 1fr [C6] 1fr [C7] 1fr [C8] 0.5fr;
+    grid-template-columns:  0.5fr [C1] 1fr [C2] 1fr [C3] 1fr [C4] 1fr [C5] 1fr [C6] 1fr [C7] 1fr [C8]  1fr [C9] 0.5fr;
     grid-template-rows:  1fr [S1] 1fr [S2] 1fr [S3] 1fr;
-
+    position: relative;
 }
 
 .ContenidoSeccion
 {
     grid-row: 1/ span 5;
     grid-column: 1 / span 10;
-    padding: 5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    position: relative;
 }
 
 .BackgroundSA
@@ -84,32 +80,57 @@
     background-color: $Naranja;
 }
 
-.recSeccion
-{
-    width: 50%;
-    *{
-        width: 100%;
-        text-align: center;
-    }
-}
+
 
 @mixin CrucesPequenas
 {
     position: relative;
     z-index: 4;
+    display: flex;
+    justify-content: center;
     img{
         width: 100%;
         position: absolute;
     }
 }
 
+/*@mixin transicionAnchura ($scr1, $w1, $scr2, $w2){
+
+    $x1: $scr1; // ej 360px
+    $y1: $w1; // ej 100%
+    $x2: $scr2; // ej 1920px
+    $y2: $w2; // ej 50%
+
+    @for $i from 0 through 40 
+    {
+        $d0 : 50px*$i;
+        $d1 : 50px*($i + 1);
+        @media screen and (min-width: $d0) and (max-width: $d1)
+        {
+            width: EcuacionRecta($x1, $y1, $x2, $y2, $d0);
+        }
+    }
+}*/
+
 .CrucesRojas1
 {
     grid-row: S3;
-    grid-column: C5 / span C8;
+    grid-column: C6 / span C8;
     @include CrucesPequenas;
+    
+
     img{
-        margin-top: 50%;
+        margin-top: 50px;
+        @for $i from 0 through 40 
+        {
+            $d0 : 50px*$i;
+            $d1 : 50px*($i + 1);
+            @media screen and (min-width: $d0) and (max-width: $d1)
+            {
+                width: EcuacionRecta(360px, 100%, 1920px, 50%, $d0);
+                margin-top: EcuacionRecta(360px, 100px, 1920px, 50px, $d0);
+            }
+        }
     }
     
 }
@@ -121,6 +142,7 @@
     @include CrucesPequenas;
     img{
         margin-top: 80%;
+        
     }
 }
 
@@ -155,25 +177,132 @@
         margin-right: -40%;
     }
 }
+//----------Secciones -------------
+@mixin lineaBlanca 
+{
+    display: block;
+    width: 1px;
+    background-color: white;
+    content: "";
+}
 
-/*
-.cruzGigante {
-
-    img 
+#RefEconomy::before
     {
-        @for $i from 1 through 20 {
-
-            @media screen and (min-width: 550px*$i) and (max-width: 50px*($i + 1)) {
-                font-size: 5%*$i;
-            }
-
-        }
+        grid-row: 1;
+        grid-column: C5;
+        @include lineaBlanca;
+        height: 100%;
     }
-    
-}*/
+
+    #RefEconomy::after
+    {
+        grid-row: S3;
+        grid-column: C5;
+        @include lineaBlanca;
+        height: 70%;
+        margin-top: 30%;
+        position: absolute;
+        bottom: 0;
+    }
+.wrappRefEconomy
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding:  0em 3em;
+    position: relative;
+
+    .recSeccionRefEconomy
+    {
+        width: auto;
+
+        @media screen and (min-width: 500px){
+            width: 460px;
+        }
+
+        /*$x1: 360px; 
+        $y1: 100%; 
+        $x2: 1920px; 
+        $y2: 25%;
+
+        @for $i from 0 through 40 
+        {
+            $d0 : 50px*$i;
+            $d1 : 50px*($i + 1);
+            @media screen and (min-width: $d0) and (max-width: $d1)
+            {
+                width: EcuacionRecta($x1, $y1, $x2, $y2, $d0);
+            }
+        }*/
+        
+        *{
+            text-align: center;
+        }
+
+        
+        
+    }
+
+}
+
+.refEcoSeguir
+        {
+            grid-column: C1 / span C9;
+            grid-row: S3;
+            height: auto;
+            text-align: center;
+
+            .wrapperAbajoIcono
+            {
+                width: auto;
+                margin-top: 5px;
+                img{
+                    width: 18px;
+                }
+            }
+        }
+
+.menuContent,
+.menuHome
+{
+    color: white;
+}
+
+.menuHome
+{
+    height: 50px;
+    background-color: $AzulOscuro;
+    cursor: pointer;
+}
+
+.menuContent
+{
+    background-color: $Naranja;
+    overflow: hidden;
+}
+
+.ButtonWrap
+{
+   padding: 1em 3em;
+   display: flex;
+   justify-content: center;
+
+    a
+    {
+        display: block;
+        background: #FF760A;
+        padding: 0.5em 1.5em;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+
+
 
 //-----------------------ANCHO MAYOR A 500PX-----------------------------------
-@media screen and (min-width: 550px) 
+/*@media screen and (min-width: 550px) 
 {
     
 .cruzGigante 
@@ -236,4 +365,6 @@
     }
 }
 
-}
+
+
+}*/

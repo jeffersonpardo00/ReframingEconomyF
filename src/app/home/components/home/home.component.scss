@@ -173,7 +173,7 @@
             @media screen and (min-width: $d0) and (max-width: $d1)
             {
                 width: EcuacionRecta(360px, 80%, 1920px, 30%, $d0);
-                margin-top: EcuacionRecta(360px, 100px, 1920px, 50px, $d0);
+                margin-top: EcuacionRecta(360px, 40%, 1920px, -5%, $d0);
             }
         }
 
@@ -188,10 +188,29 @@
 .CrucesBlanco2
 {
 
-    @include transicionAnchura (360px, 100px, 1920px, 250px);
+   // @include transicionAnchura (360px, 100px, 1920px, 250px);
     position: absolute;
-    bottom: 10px;
-    left: -50px;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    z-index: 5;
+
+    img{
+        
+        @for $i from 0 through 40 
+        {
+            $d0 : 50px*$i;
+            $d1 : 50px*($i + 1);
+            @media screen and (min-width: $d0) and (max-width: $d1)
+            {
+                width: EcuacionRecta(360px, 100%, 1920px, 40%, $d0);
+                margin-left: EcuacionRecta(360px, -40%, 1920px, 25%, $d0);
+                margin-bottom: EcuacionRecta(360px, -75%, 1920px, -30%, $d0);
+                
+            }
+        }
+        
+    }
 
     @media screen and (min-width: 900px){
         left: 50px;
@@ -201,13 +220,30 @@
 
 .CrucesBlanco3
 {
-    grid-row: S3;
-    grid-column: C7 / span 10;
-    @include CrucesPequenas;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 25%;
+    z-index: 5;
+
+
     img{
-        margin-top: 40%;
-        margin-right: -40%;
+        @for $i from 0 through 40 
+        {
+            $d0 : 50px*$i;
+            $d1 : 50px*($i + 1);
+            @media screen and (min-width: $d0) and (max-width: $d1)
+            {
+                width: EcuacionRecta(360px, 100%, 1920px, 40%, $d0);
+               // margin-right: EcuacionRecta(360px, 50%, 1920px, 25%, $d0);
+                margin-bottom: EcuacionRecta(360px, -75%, 1920px, -30%, $d0);
+                
+            }
+        }
+        
     }
+
+
 }
 
 
@@ -266,6 +302,7 @@
         padding: 0.5em 1.5em;
         color: white;
         text-decoration: none;
+        text-align: center;
     }
 }
 
@@ -419,7 +456,7 @@
         margin-right: 0%;
         position: absolute;
         left:0;
-        z-index: 10;
+        z-index: 5;
         width: 30%;
         height: 100%;
     }
@@ -451,10 +488,7 @@
         height: 70%;
         position: absolute;
         bottom: -40%;
-        @media screen and (min-width: 900px){
-            bottom: 0%;
-    
-        }
+        
     }
 
 .wrappPorque{
@@ -519,7 +553,7 @@
         flex-direction: column;
         margin-left: 0%;
         right: 0;
-        z-index: 10;
+        z-index: 5;
         width: 40%;
         height: 100%;
         h1{
@@ -542,14 +576,40 @@
 
 .seccion1
 {
-    padding: 2em;
+    display: grid;
+    grid-template-columns:  0.5fr [C1] 1fr [C2] 1fr [C3] 1fr [C4] 1fr [C5] 1fr [C6] 1fr [C7] 1fr [C8]  1fr [C9] 0.5fr;
+    grid-template-rows:  1fr [S1] 1fr [S2] 1fr [S3] 1fr;
+    position: relative;
+    .ContenidoSeccion
+    {
+        padding: 4em 2em;
+    }
+
+    @media screen and (min-width: 900px){
+        height: 100vh;
+
+    }
+
 }
+
+
+#ComoAyuda::after
+    {
+        grid-row: S3;
+        grid-column: C5;
+        @include lineaBlanca;
+        height: 70%;
+        position: absolute;
+        bottom: -40%;
+        z-index: 3;
+    }
 
 .wrappComoAyuda
 {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 
     .recSeccionComoAyuda
     {
@@ -619,13 +679,27 @@
 }
 
 //--------------------------como usar------------------------------
+#ComoUsar
+{
+    z-index: 1;
+}
 
+#ComoUsar::after
+    {
+        grid-row: S3;
+        grid-column: C5;
+        @include lineaBlanca;
+        height: 70%;
+        position: absolute;
+        bottom: -40%;
+        z-index: 4;
+    }
 .wrappComoUsar
 {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    height: 100%;
     .recSeccionComoUsar
     {
         @include transicionAnchura (360px, 90%, 1920px, 45%);
@@ -699,6 +773,25 @@
 
 //--------------------------contacto------------------------------
 
+.seccion2
+{
+    position: relative;
+    .ContenidoSeccion
+    {
+        padding-top: 10em; 
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-bottom: 3em;
+    }
+
+
+}
+
+
+#Contacto
+{
+    z-index: 0;
+}
 .wrappContacto
 {
     display: flex;
@@ -712,7 +805,6 @@
         {
             width: 100%;
             text-align: center;
-            margin-bottom: 2em;
             h1{
                 margin: 0;
             }

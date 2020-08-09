@@ -1,0 +1,24 @@
+@import '../../../../styles.scss';
+
+.fondoFooter
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $AzulOscuro;
+    padding: 3em;
+    flex-direction: column;
+
+    .titFooter
+    {
+        font-weight: bold;
+        font-size: small;   
+        text-align: center;     
+    }
+    
+    .descFooter{
+        font-size: smaller;
+        text-align: center;    
+    }
+
+}

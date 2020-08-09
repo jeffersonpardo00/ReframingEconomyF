@@ -1,5 +1,10 @@
 @import '../../../../styles.scss';
 
+/*
+-------------------------------------
+--------------FONDO HOME---------------------
+----------------------------------------
+*/
 
 .CruzBackground
 {
@@ -8,6 +13,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 2fr [FC] 1fr;
     z-index: 1;
+    height: 300vh;
 }
 
 .cruzGigante 
@@ -15,15 +21,11 @@
     z-index: 2;
     position: relative;
     overflow: hidden;
-    grid-row: 1/ span FC;
+    grid-row: 1/ span 3;
     grid-column: 1 / span 2;
 
     img 
     {
-       // width: 400%;
-       // margin-left: -100%;
-       // margin-top: -130%;
-
         @for $i from 1 through 40 {
 
             @media screen and (min-width: 50px*$i) and (max-width: 50px*($i + 1)) {
@@ -38,12 +40,7 @@
         margin-left: 5%;
         margin-top: 50%;
     }
-/*
-    img{
-        width: 400%;
-        margin-left: -100%;
-        margin-top: -130%;
-    }*/
+
 }
 
 .ContentSeccionesCruz
@@ -80,8 +77,6 @@
     background-color: $Naranja;
 }
 
-
-
 @mixin CrucesPequenas
 {
     position: relative;
@@ -94,7 +89,7 @@
     }
 }
 
-/*@mixin transicionAnchura ($scr1, $w1, $scr2, $w2){
+@mixin transicionAnchura ($scr1, $w1, $scr2, $w2){
 
     $x1: $scr1; // ej 360px
     $y1: $w1; // ej 100%
@@ -110,7 +105,7 @@
             width: EcuacionRecta($x1, $y1, $x2, $y2, $d0);
         }
     }
-}*/
+}*
 
 .CrucesRojas1
 {
@@ -138,33 +133,70 @@
 .CrucesRojas2
 {
     grid-row: S3;
-    grid-column: C1 / span C3;
+    grid-column: C1 / span C4;
     @include CrucesPequenas;
     img{
-        margin-top: 80%;
+        // margin-top: 80%;
+        @for $i from 0 through 40 
+        {
+            $d0 : 50px*$i;
+            $d1 : 50px*($i + 1);
+            @media screen and (min-width: $d0) and (max-width: $d1)
+            {
+                width: EcuacionRecta(360px, 80%, 1920px, 50%, $d0);
+                margin-top: EcuacionRecta(360px, 100px, 1920px, 50px, $d0);
+            }
+        }
         
     }
+
+    @media screen and (min-width: 900px){
+        grid-column: C2 / span C4;
+
+    }
+
 }
 
 .CrucesBlanco1
 {
     grid-row: S3;
-    grid-column: C5 / span C8;
+    grid-column: C6 / span C9;
     @include CrucesPequenas;
     img{
         margin-top: 10%;
+
+        // margin-top: 80%;
+        @for $i from 0 through 40 
+        {
+            $d0 : 50px*$i;
+            $d1 : 50px*($i + 1);
+            @media screen and (min-width: $d0) and (max-width: $d1)
+            {
+                width: EcuacionRecta(360px, 80%, 1920px, 30%, $d0);
+                margin-top: EcuacionRecta(360px, 100px, 1920px, 50px, $d0);
+            }
+        }
+
     }
+
+    @media screen and (min-width: 900px){
+        justify-content: flex-start;
+    }
+
 }
 
 .CrucesBlanco2
 {
-    grid-row: S3;
-    grid-column: 1 / span C2;
-    @include CrucesPequenas;
-    img{
-        margin-top: 40%;
-        margin-left: -40%;
+
+    @include transicionAnchura (360px, 100px, 1920px, 250px);
+    position: absolute;
+    bottom: 10px;
+    left: -50px;
+
+    @media screen and (min-width: 900px){
+        left: 50px;
     }
+
 }
 
 .CrucesBlanco3
@@ -177,14 +209,67 @@
         margin-right: -40%;
     }
 }
-//----------Secciones -------------
+
+
 @mixin lineaBlanca 
 {
     display: block;
     width: 1px;
-    background-color: white;
+    background-color: #ffffff85;
     content: "";
 }
+
+
+/*
+--------------------------------------------
+--------------MENU NAVEGACIÓN---------------------
+---------------------------------------------
+*/
+
+.menuContent,
+.menuHome
+{
+    color: white;
+}
+
+.menuHome
+{
+    height: 50px;
+    background-color: $AzulOscuro;
+    cursor: pointer;
+}
+
+.menuContent
+{
+    background-color: $Naranja;
+    overflow: hidden;
+}
+
+
+/*
+-------------------------------------
+--------------SECCIONES---------------------
+----------------------------------------
+*/
+
+//-----------generales------------------------
+.ButtonWrap
+{
+   padding: 1em 3em;
+   display: flex;
+   justify-content: center;
+
+    a
+    {
+        display: block;
+        background: #FF760A;
+        padding: 0.5em 1.5em;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+//-----------RefEconomy------------------------
 
 #RefEconomy::before
     {
@@ -220,21 +305,6 @@
         @media screen and (min-width: 500px){
             width: 460px;
         }
-
-        /*$x1: 360px; 
-        $y1: 100%; 
-        $x2: 1920px; 
-        $y2: 25%;
-
-        @for $i from 0 through 40 
-        {
-            $d0 : 50px*$i;
-            $d1 : 50px*($i + 1);
-            @media screen and (min-width: $d0) and (max-width: $d1)
-            {
-                width: EcuacionRecta($x1, $y1, $x2, $y2, $d0);
-            }
-        }*/
         
         *{
             text-align: center;
@@ -245,7 +315,6 @@
     }
 
 }
-
 .refEcoSeguir
         {
             grid-column: C1 / span C9;
@@ -263,108 +332,397 @@
             }
         }
 
-.menuContent,
-.menuHome
-{
-    color: white;
-}
+//-----------que es----------------------
 
-.menuHome
-{
-    height: 50px;
-    background-color: $AzulOscuro;
-    cursor: pointer;
-}
-
-.menuContent
-{
-    background-color: $Naranja;
-    overflow: hidden;
-}
-
-.ButtonWrap
-{
-   padding: 1em 3em;
-   display: flex;
-   justify-content: center;
-
-    a
+#QueEs::after
     {
-        display: block;
-        background: #FF760A;
-        padding: 0.5em 1.5em;
+        grid-row: S3;
+        grid-column: C5;
+        @include lineaBlanca;
+        height: 70%;
+        position: absolute;
+        bottom: -40%;
+        @media screen and (min-width: 900px){
+            bottom: 0%;
+    
+        }
+    }
+
+.wrappQueEs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+}
+
+.recSeccionQuees
+{
+    height: 90%;
+   position: relative;
+   padding: 10%;
+   @include transicionAnchura (360px, 80%, 1920px, 60%);
+}
+
+.DesSeccionQueEs
+{
+    margin-right: 20%;
+    .linkWrapper a
+    {
         color: white;
-        text-decoration: none;
+        font-weight: bold;
+    }
+    h1{
+        margin-top: 0;
     }
 }
 
-
-
-
-//-----------------------ANCHO MAYOR A 500PX-----------------------------------
-/*@media screen and (min-width: 550px) 
+.imgSeccionQueEs
 {
+    background-color: $Morado;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:  2em 2em;
+    margin-left: 30%;
+    height: 60%;
+    .imgWrapper
+    {
+        width: auto;
+        padding-left: 5%;
+        padding-right: 1%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            height: 80%;
+        }
+    }
     
-.cruzGigante 
-{
-   // grid-column: IC / span 2;
-    img{
-        // margin-top: -60%;
-    }
-
 }
 
-.CrucesRojas1
+@media screen and (min-width: 900px){
+
+    .recSeccionQuees
+    {
+        height: 70%;
+        padding: 0;
+    }
+    .DesSeccionQueEs
+    {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start ;
+        flex-direction: column;
+        margin-right: 0%;
+        position: absolute;
+        left:0;
+        z-index: 10;
+        width: 30%;
+        height: 100%;
+    }
+    .imgSeccionQueEs
+    {
+        flex-direction: row;
+        margin-left: 0%;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 70%;
+    }
+        
+}
+
+//-----------por qué----------------------
+
+.imgSeccionPorque
 {
-    grid-row: S3;
-    grid-column: C6;
-    @include CrucesPequenas;
-    img{
-        margin-top: 50%;
+    height: 500px;
+}
+
+
+#Porque::after
+    {
+        grid-row: S3;
+        grid-column: C5;
+        @include lineaBlanca;
+        height: 70%;
+        position: absolute;
+        bottom: -40%;
+        @media screen and (min-width: 900px){
+            bottom: 0%;
+    
+        }
+    }
+
+.wrappPorque{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+}
+
+.recSeccionPorque
+{
+    height: 90%;
+   position: relative;
+   padding: 10%;
+   @include transicionAnchura (360px, 80%, 1920px, 60%);
+}
+
+.DesSeccionPorque
+{
+    margin-left: 20%;
+    *{
+        text-align: right;
+    }
+    h1{
+        margin-top: 0;
+    }
+}
+
+.imgSeccionPorque
+{
+    background-color: $Morado;
+    margin-right: 30%;
+    height: 60%;
+    overflow: hidden;
+
+    .imgWrapper
+    {
+        width: auto;
+        height: 100%;
+        img{
+            height: 100%;
+            width: auto;
+        }
     }
     
 }
 
-.CrucesRojas2
-{
-    grid-row: S3;
-    grid-column: C2;
-    @include CrucesPequenas;
-    img{
-        margin-top: 80%;
+@media screen and (min-width: 900px){
+
+    .recSeccionPorque
+    {
+        height: 70%;
+        padding: 0;
     }
+    .DesSeccionPorque
+    {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start ;
+        flex-direction: column;
+        margin-left: 0%;
+        right: 0;
+        z-index: 10;
+        width: 40%;
+        height: 100%;
+        h1{
+            width: 100%;
+        }
+    }
+    .imgSeccionPorque
+    {
+        position: absolute;
+        flex-direction: row;
+        margin-right: 0%;
+        left: 0;
+        height: 100%;
+        width: 70%;
+    }
+        
 }
 
-.CrucesBlanco1
+///---------cómo ayuda---------------
+
+.seccion1
 {
-    grid-row: S3;
-    grid-column: C5;
-    @include CrucesPequenas;
-    img{
-        margin-top: 10%;
-    }
+    padding: 2em;
 }
 
-.CrucesBlanco2
+.wrappComoAyuda
 {
-    grid-row: S3;
-    grid-column: C1;
-    @include CrucesPequenas;
-    img{
-        margin-top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .recSeccionComoAyuda
+    {
+        @include transicionAnchura (360px, 90%, 1920px, 45%);
+        
+        
+        .DesSeccionComoAyuda
+        {
+            width: 100%;
+            text-align: center;
+            h1{
+                margin: 0;
+            }
+        }
+
+        .parrafoIcono
+            {
+                margin-top: 0.8em;
+                margin-bottom: 0.8em;
+                line-height: 1em;
+                font-size: small;
+            }
+
+            .imgSeccionComoAyuda
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                @media screen and (min-width: 500px){
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+
+
+                .CardIcono
+                {
+                    padding: 1.2em;
+                    .tituloIcono
+                    {
+                        padding-top: 0.5em;
+                        text-align: center;
+                        font-weight: bold;
+                    }
+                    .parrafoIcono
+                    {
+                        text-align: center;
+                    }
+                    .iconWrapper
+                    {
+                        text-align: center;
+                        img{
+                            width: 100%;
+                            max-width: 120px;
+
+                            @media screen and (min-width: 500px){
+                                width: 250px;
+                            }
+                        }
+                    }
+                }
+            }
+
     }
+
 }
 
-.CrucesBlanco3
+//--------------------------como usar------------------------------
+
+.wrappComoUsar
 {
-    grid-row: S3;
-    grid-column: C6;
-    @include CrucesPequenas;
-    img{
-        margin-top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .recSeccionComoUsar
+    {
+        @include transicionAnchura (360px, 90%, 1920px, 45%);
+        
+        
+        .DesSeccionComoUsar
+        {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2em;
+            h1{
+                margin: 0;
+            }
+        }
+
+        .parrafoIcono
+        {
+            margin-top: 0.8em;
+            margin-bottom: 0.8em;
+            line-height: 1em;
+            font-size: small;
+        }
+
+        .parrFootComoUsar
+        {
+            font-size: small;
+            text-align: center;
+            width: 100%;
+        }
+
+            .imgSeccionComoUsar
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                @media screen and (min-width: 500px){
+                    flex-direction: row;
+                }
+                .CardIcono
+                {
+                    padding: 1.2em;
+                    .tituloIcono
+                    {
+                        padding-top: 0.5em;
+                        text-align: center;
+                        font-weight: bold;
+                    }
+                    .parrafoIcono
+                    {
+                        text-align: center;
+                    }
+                    .iconWrapper
+                    {
+                        text-align: center;
+                        img{
+                            width: 100%;
+                            max-width: 120px;
+
+                            @media screen and (min-width: 500px){
+                                width: 250px;
+                            }
+                        }
+                    }
+                }
+            }
     }
+
 }
 
+//--------------------------contacto------------------------------
 
+.wrappContacto
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-}*/
+    .recSeccionContacto
+    {
+        @include transicionAnchura (360px, 90%, 1920px, 45%);
+        .DesSeccionContacto
+        {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2em;
+            h1{
+                margin: 0;
+            }
+        }
+        .parrContacto
+        {
+            margin-top: 0.8em;
+            margin-bottom: 0.8em;
+            line-height: 1em;
+            font-size: small;
+        }
+    }
+}

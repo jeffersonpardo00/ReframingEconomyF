@@ -8,7 +8,7 @@ import { trigger,state,style,transition,animate,keyframes} from '@angular/animat
 
     trigger('collapse',[
       state('small',style({height:'0px'})),
-      state('large',style({height:'220px'})),
+      state('large',style({height:'350px'})),
       transition('small <=> large',animate('400ms ease-in'))
   ])]
 

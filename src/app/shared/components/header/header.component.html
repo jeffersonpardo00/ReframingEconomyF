@@ -1,14 +1,24 @@
 <div id="navWrapper" class="navWrapper">
     <nav class="menuHome" (click)="colapsar()">
         <img src="assets/images/LogoWT.svg" alt="logo">
+
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
     </nav>
 </div>
 
 <div id="menuContent" class="menuContent" [@collapse]='state'>
-    <div class="itemMenuB">&nbsp;</div>
-    <div class="itemMenu" (click)="toQueEs()">¿Qué es?</div>
-    <div class="itemMenu" (click)="toPorque()">¿Por qué?</div>
-    <div class="itemMenu" (click)="toComoAyuda()">¿Cómo esto ayuda a las marcas</div>
-    <div class="itemMenu" (click)="toComoUsar()">¿Cómo usar el dashboard?</div>
-    <div class="itemMenu" (click)="toContacto()">Contacto</div>
+    <div class="menuListWrapp">
+        <div class="itemMenuB">&nbsp;</div>
+        <div class="itemMenu" (click)="toQueEs()">¿Qué es?</div>
+        <div class="itemMenu" (click)="toPorque()">¿Por qué?</div>
+        <div class="itemMenu" (click)="toComoAyuda()">¿Cómo esto ayuda a las marcas</div>
+        <div class="itemMenu" (click)="toComoUsar()">¿Cómo usar el dashboard?</div>
+        <div class="itemMenu" (click)="toContacto()">Contacto</div>
+    </div>
+    
 </div>

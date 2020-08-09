@@ -32,10 +32,6 @@ app-header{
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px 15px 40px;
-    // padding-top: 15px 110px 15px 130px;
-    // padding-bottom: 15px;
-    // padding-left: 130px;
-    // padding-right: 110px;
     img{
         height: 50%;
        // height: 35%;
@@ -56,10 +52,26 @@ app-header{
 
 }
 
+.burger
+{
+    div{
+        background-color: #6898ff;
+        width: 20px;
+        height: 3px;
+        margin: 2px 0;
+    }
+}
+
+.menuHome:hover
+{
+    background-color: #022779;
+}
+
 .menuContent
 {
     background-color: $Naranja;
     overflow: hidden;
+    position: relative;
 }
 
 .itemMenu
@@ -68,7 +80,7 @@ app-header{
     width: 100%;
     text-align: center;
     cursor: pointer;
-    
+    margin: 0.5em 0;
 }
 
 .itemMenu:hover{
@@ -81,15 +93,11 @@ app-header{
 }
 
 
-/*.logoWrapper
+.menuListWrapp
 {
-    height: 100%;
+    position: absolute;
+    bottom: 0;
+    height: auto;
     width: 100%;
-    display: flex;
-    //padding: 25% 10% 25%  10%;
-    img{
-        height: 60%;
-        margin: 25% 10% 25%  10%;
-    }
-    
-}*/
+    text-align: center;
+}

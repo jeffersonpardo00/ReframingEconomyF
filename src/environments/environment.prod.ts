@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   firebase: {
     apiKey: 'AIzaSyD7isBfaTene61zbwrW5NHv73xSM4SxXqk',
     authDomain: 'reframingeconomy-jpardo.firebaseapp.com',
